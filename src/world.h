@@ -8,11 +8,11 @@
 
 
 enum class Square {
-	Void  = ' ',
-	Floor = '.',
-	Wall  = '#',
-	Start = 'S',
-	End   = 'E',
+	Void  = 0,
+	Floor,
+	Wall ,
+	Start,
+	End  ,
 };
 
 std::string toString(Square square);
@@ -23,8 +23,10 @@ struct World {
 
 	std::vector<Square> squares;
 	size_t width;
-	size_t floors;
-	std::vector<size_t> starts;
+	size_t tiles;
+	long end;
+	long start;
+	S64 endX, endY;
 
-	operator std::string() const;
+	std::string toString(long pos = -1) const;
 };
