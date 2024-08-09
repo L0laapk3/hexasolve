@@ -8,28 +8,22 @@
 
 int main(int, char**) {
 
-	World world({
-		"                            ####   ",
-		"                            . .#   ",
-		"          . .          .... .#.#   ",
-		"####       .... ...##.....####.#   ",
-		"#..       . ##.... .#. ....   .    ",
-		"#.. . . .#....#... .#..#.   .....  ",
-		"#.S. . ..#. .#.... .#...  .#...E..#",
-		"#..    #. .. ..#....#. .. . #....  ",
-		"####    #   . .  .. ...##..        ",
-		"                ....#..   #        ",
-		"               #....# . ...        ",
-	});
-
-	std::cout << world.toString() << std::endl;
-
-	FaceCounts counts{0};
-	counts[(size_t)Face::Blank] = 6;
-	counts[(size_t)Face::Dash] = 3;
-	auto solution = solve(world, counts);
-
-	std::cout << solution.first << " solves in " << solution.second.size() << ": " << solution.second << std::endl;
+	if constexpr (1) { // world 6
+		auto solution = solve(World({
+			"                            ####   ",
+			"                            . .#   ",
+			"          . .          .... .#.#   ",
+			"####       .... ...##.....####.#   ",
+			"#..       . ##.... .#. ....   .    ",
+			"#.. . . .#....#... .#..#.   .....  ",
+			"#.S. . ..#. .#.... .#...  .#...E..#",
+			"#..    #. .. ..#....#. .. . #....  ",
+			"####    #   . .  .. ...##..        ",
+			"                ....#..   #        ",
+			"               #....# . ...        ",
+		}), { 6, 6 });
+	}
+	
 
 	return 0;
 }

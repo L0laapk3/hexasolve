@@ -26,6 +26,8 @@ struct Node {
 
 
 std::pair<std::string, std::string> solve(const World& world, FaceCounts counts) {
+	std::cout << world.toString() << std::endl;
+
 	size_t dicePerms = 0;
 	iterateDice(counts, [&](auto dice) {
 		dicePerms++;
@@ -118,10 +120,14 @@ std::pair<std::string, std::string> solve(const World& world, FaceCounts counts)
 					while (nodeP->parent) {
 						path = nodeP->direction + path;
 						nodeP = nodeP->parent;
-						std::cout << world.toString(nodeP->pos) << diceOptions[nodeP->diceStateI].toString() << " " << nodeP->direction << std::endl;
+						// std::cout << world.toString(nodeP->pos) << diceOptions[nodeP->diceStateI].toString() << " " << nodeP->direction << std::endl;
 					}
 
-					return { diceOptions[nodeP->diceStateI].toString(), path };
+					auto origRot = diceOptions[nodeP->diceStateI].toString();
+
+					std::cout << origRot << " solves in " << path.size() << ": " << path << std::endl;
+
+					return { origRot, path };
 				}
 				// if (world.squares[newPos] != Square::Floor)
 				// 	throw std::runtime_error("Invalid square");
