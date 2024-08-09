@@ -3,7 +3,6 @@
 #include <stdexcept>
 
 
-constexpr size_t EDGE_MARGIN = 2;
 
 World::World(std::vector<std::string> strings) : squares((strings.size() + 2 * EDGE_MARGIN) * (strings[0].size() + 2 * EDGE_MARGIN)), width(strings[0].size()), tiles(0) {
 	for (size_t y = 0; y < strings.size(); ++y) {
@@ -24,8 +23,8 @@ World::World(std::vector<std::string> strings) : squares((strings.size() + 2 * E
 		}
 	}
 
-	endX = end % width;
-	endY = end / width;
+	endX = end % (width + 2 * EDGE_MARGIN);
+	endY = end / (width + 2 * EDGE_MARGIN);
 }
 
 

@@ -7,6 +7,9 @@
 #include "types.h"
 
 
+
+constexpr size_t EDGE_MARGIN = 2;
+
 enum class Square {
 	Void  = 0,
 	Floor,

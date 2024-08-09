@@ -4,4 +4,4 @@
 #include "world.h"
 
 
-std::string solve(World& world, FaceCounts counts);
+std::pair<std::string, std::string> solve(const World& world, FaceCounts counts);

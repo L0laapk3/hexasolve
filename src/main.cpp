@@ -25,10 +25,11 @@ int main(int, char**) {
 	std::cout << world.toString() << std::endl;
 
 	FaceCounts counts{0};
-	counts[(size_t)Face::Dash] = 6;
+	counts[(size_t)Face::Blank] = 6;
+	counts[(size_t)Face::Dash] = 3;
 	auto solution = solve(world, counts);
 
-	std::cout << solution.size() << " " << solution << std::endl;
+	std::cout << solution.first << " solves in " << solution.second.size() << ": " << solution.second << std::endl;
 
 	return 0;
 }
